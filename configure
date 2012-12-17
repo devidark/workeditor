@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Configure ncurses
+# (cd vis/term/driver/ncurses-5.9 && ./configure && make)
+
+# Configure our sources
+BUILD_TYPE="Release"
+if [ -n "$1" ]; then
+    BUILD_TYPE=$1;
+fi
+
+mkdir -p $BUILD_TYPE
+
+(cd $BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..)
